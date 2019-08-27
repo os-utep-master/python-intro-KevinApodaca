@@ -3,7 +3,7 @@ purpose is to have a fairly simple python assignment that introduces
 the basic features and tools of python
 
 In the repository are two plain text files with lots of words. Your
-assignment is to create a python 2 program which:
+assignment is to create a python 3 program which:
 * takes as input the name of an input file and output file
 * example
 
