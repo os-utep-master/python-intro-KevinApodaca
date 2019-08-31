@@ -9,8 +9,15 @@ Description: The purpose is to have a fairly simple python assignment that intro
 import re, os, sys, subprocess
 import string
 
+#taking file arguments from terminal
+wordFile = sys.argv[1]
+outputFile = sys.argv[2]
+
 #taking text file and assigning it to string.
-str1 = open('declaration.txt', 'r').read()
+#str1 = open('declaration.txt', 'r').read()
+str1 = open(wordFile, 'r').read()
+
+
 wordList1 = str1.split(None)
 wordList2 = []
 
@@ -29,8 +36,12 @@ for word2 in wordList2:
 #make list of words from frequency list and sort them alphabetically using sort function.
 word_list = word_freq.keys()
 word_list.sort()
- 
-print ("Sorted word frequency:")
-for words in word_list:
-  print ("%-10s %d" % (words, word_freq[words]))
+
+with open(outputFile, 'w') as out_file:
+    for words in word_list:
+        out_file.writelines(("%-10s %d" % (words, word_freq[words])))
+
+# Used the following piece of code from this source https://stackoverflow.com/questions/25023233/how-to-save-python-screen-output-to-a-text-file to try to write output to a text file.
+#stdoutOrigin=sys.stdout 
+#sys.stdout = open(outputFile, "w")
 
