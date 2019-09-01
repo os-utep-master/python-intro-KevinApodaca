@@ -3,10 +3,12 @@
 CS 4375: Theory of Operating Systems
 Lab 01: Into to Python
 Author: Kevin Apodaca
-Description: The purpose is to have a fairly simple python assignment that introduces the basic features and tools of python.
+Description: The purpose is to have a fairly simple python assignment that introduces the basic features and tools of python. This program will take a text file and determine the frequency of the
+words used, displaying the words (in alphabetical order) as well as the amount of times they appear.
 """
+
 #imports 
-import re, os, sys, subprocess
+import re, os, sys
 import string
 
 #taking file arguments from terminal
@@ -14,17 +16,14 @@ wordFile = sys.argv[1]
 outputFile = sys.argv[2]
 
 #taking text file and assigning it to string.
-#str1 = open('declaration.txt', 'r').read()
 str1 = open(wordFile, 'r').read()
-
-
 wordList1 = str1.split(None)
 wordList2 = []
 
 for word1 in wordList1:
     # testing for any punctuation marks, and if found, will be removed.
     lastchar = word1[-1:]
-    if lastchar in [",", ".", "!", "?", ";", "-", ".--", ":", ".- -"]:
+    if lastchar in [",", ".", "!", "?", ";", "-", ".--", ":", ".- -", "'"]:
         word2 = word1.rstrip(lastchar)
     else:
         word2 = word1
@@ -39,9 +38,5 @@ word_list.sort()
 
 with open(outputFile, 'w') as out_file:
     for words in word_list:
-        out_file.writelines(("%-10s %d" % (words, word_freq[words])))
-
-# Used the following piece of code from this source https://stackoverflow.com/questions/25023233/how-to-save-python-screen-output-to-a-text-file to try to write output to a text file.
-#stdoutOrigin=sys.stdout 
-#sys.stdout = open(outputFile, "w")
+        out_file.writelines(("%s %d\n" % (words, word_freq[words])))
 
