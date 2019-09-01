@@ -17,19 +17,20 @@ word_freq = {}
 #taking text file and assigning it to string.
 str1 = open(wordFile, 'r').read().lower()
 
-# I used these resources to learn about the formatting for regular expressions 
-# https://docs.python.org/3/library/re.html
-# https://www.guru99.com/python-regular-expressions-complete-tutorial.html
+#I used these resources to learn about the formatting for regular expressions 
+#https://docs.python.org/3/library/re.html
+#https://www.guru99.com/python-regular-expressions-complete-tutorial.html
 
 formated_list = re.findall(r'\b[a-z]{1,15}\b', str1)
 
+#traversing list and adding to dictionary
 for word in formated_list:
     counter = word_freq.get(word,0)
-    word_freq[word] = counter + 1 
+    word_freq[word] = counter + 1 #keeping track of how many of each word
 
-list_of_words = sorted(word_freq.keys())
+list_of_words = sorted(word_freq.keys()) #sorting the final list based on keys (the actual words)
 
 with open(outputFile, 'w') as out_file:
     for words in list_of_words:
-        out_file.writelines(("%s %d\n" % (words, word_freq[words])))
+        out_file.writelines(("%s %d\n" % (words, word_freq[words]))) #writing to and formatting the output file
 
