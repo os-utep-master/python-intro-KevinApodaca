@@ -10,6 +10,7 @@ Create a python3 program which:
 
 ## Requirements & Assumptions 
 - python 3 must be installed for proper functionality (this was tested on version 3.7.4)
+- I am assuming that the smallest word is of length 1 and the largest word has length 15, otherwise I assume it is a misspelling or nonsense. If you want to change these parameters then go line 24 of `wordCount.py` and change the values of either 1 or 15, according to your needs.
 
 ## How to run
 Ensure you are in the proper directory that contains the *wordCount.py* file, then simply type the following in your terminal.
