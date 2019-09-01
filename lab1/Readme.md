@@ -26,5 +26,5 @@ I worked with the following people on this assignment.
 The following are web resources that are useful.
 - I used [this](https://stackabuse.com/command-line-arguments-in-python/) to find out how to take arguments from the command line.
 - I used [this](https://docs.python.org/3/library/re.html) and [this one](https://www.guru99.com/python-regular-expressions-complete-tutorial.html) to understand how to use regular expressions.
-
+- I tested my output file with the key txt using [this](https://copyleaks.com/compare) website to test the similarity between the files.
 
