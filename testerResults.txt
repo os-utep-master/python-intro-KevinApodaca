@@ -1,0 +1,17 @@
+Missing word in test file: britain
+Missing word in test file: citizens
+Missing word in test file: evident
+Missing word in test file: fellow
+Missing word in test file: great
+Missing word in test file: s
+Missing word in test file: self
+Extra word in test file: fellow-citizens
+Extra word in test file: great-britain
+Extra word in test file: happiness.--that
+Extra word in test file: nature's
+Extra word in test file: self-evident
+Count mismatch for happiness, should be 2 value is 1
+Count mismatch for nature, should be 2 value is 1
+Count mismatch for that, should be 13 value is 12
+Error rate 2.814%
+Failed!
