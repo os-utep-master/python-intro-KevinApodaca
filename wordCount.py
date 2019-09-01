@@ -9,34 +9,27 @@ words used, displaying the words (in alphabetical order) as well as the amount o
 
 #imports 
 import re, os, sys
-import string
 
-#taking file arguments from terminal
-wordFile = sys.argv[1]
-outputFile = sys.argv[2]
+#taking file arguments from terminal. I used this https://stackabuse.com/command-line-arguments-in-python/ resource to find out how to take arguments from the command line.
+wordFile, outputFile = sys.argv[1], sys.argv[2]
+word_freq = {}
 
 #taking text file and assigning it to string.
-str1 = open(wordFile, 'r').read()
-wordList1 = str1.split(None)
-wordList2 = []
+str1 = open(wordFile, 'r').read().lower()
 
-for word1 in wordList1:
-    # testing for any punctuation marks, and if found, will be removed.
-    lastchar = word1[-1:]
-    if lastchar in [",", ".", "!", "?", ";", "-", ".--", ":", ".- -", "'"]:
-        word2 = word1.rstrip(lastchar)
-    else:
-        word2 = word1
-    wordList2.append(word2.lower()) #case-insensitive
+# I used these resources to learn about the formatting for regular expressions 
+# https://docs.python.org/3/library/re.html
+# https://www.guru99.com/python-regular-expressions-complete-tutorial.html
 
-word_freq = {}  #dictionary to store all words. Key is the word, value is the count of the word.
-for word2 in wordList2:
-    word_freq[word2] = word_freq.get(word2, 0) + 1
-#make list of words from frequency list and sort them alphabetically using sort function.
-word_list = word_freq.keys()
-word_list.sort()
+formated_list = re.findall(r'\b[a-z]{1,15}\b', str1)
+
+for word in formated_list:
+    counter = word_freq.get(word,0)
+    word_freq[word] = counter + 1 
+
+list_of_words = sorted(word_freq.keys())
 
 with open(outputFile, 'w') as out_file:
-    for words in word_list:
+    for words in list_of_words:
         out_file.writelines(("%s %d\n" % (words, word_freq[words])))
 
