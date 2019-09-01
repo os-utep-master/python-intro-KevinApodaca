@@ -14,7 +14,7 @@ import re, os, sys
 wordFile, outputFile = sys.argv[1], sys.argv[2]
 word_freq = {}
 
-#taking text file and assigning it to string.
+#taking text file and assigning it to string. Lowercasing everything because it is case insensitive.
 str1 = open(wordFile, 'r').read().lower()
 
 #I used these resources to learn about the formatting for regular expressions 
